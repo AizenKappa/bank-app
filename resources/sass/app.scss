@@ -6,3 +6,18 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+
+.menu > div{
+    
+    background-color: white;
+    box-shadow: 0 0 2px 0 black;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+}
+
+.menu > div:hover {
+    background-color: rgb(227, 222, 222);
+    box-shadow: 0 0 4px 0 black;
+}
+
