@@ -18,6 +18,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::view("/", 'home');
     Route::view("/home", 'home');
+    Route::post('/destroy', [SessionController::class, "destroy"]);
 });
 
 
@@ -30,6 +31,7 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/login', [SessionController::class, "create"]);
     
     Route::post('/register', [SessionController::class, "register"]);
+    
     
 });
 

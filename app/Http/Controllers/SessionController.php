@@ -48,4 +48,9 @@ class SessionController extends Controller
 
         return redirect('/login');
     }
+
+    public function destroy(Request $request){
+        Auth::logout();
+        return redirect()->route('login');
+    }
 }
