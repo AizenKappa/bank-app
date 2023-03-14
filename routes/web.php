@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function () {
 
+    Route::view("/", 'home');
     Route::view("/home", 'home');
-
 });
 
 
@@ -24,6 +25,9 @@ Route::middleware(['guest'])->group(function () {
 
     Route::view('/register', 'register');
 
-    Route::view('/login', 'login')
-        ->name('login');
+    Route::view('/login', 'login')->name('login');
+
+    Route::post('/login', [SessionController::class, "create"]);
+
+    
 });

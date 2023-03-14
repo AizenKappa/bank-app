@@ -11,10 +11,10 @@
 </head>
 
 <body>
+
     @auth
-    
+        @include('Auth.navbar')
     @endauth
-    @include('Auth.navbar')
 
     
     <div class='container-fluid'>
