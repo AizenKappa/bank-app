@@ -28,6 +28,9 @@ Route::middleware(['guest'])->group(function () {
     Route::view('/login', 'login')->name('login');
 
     Route::post('/login', [SessionController::class, "create"]);
-
+    
+    Route::post('/register', [SessionController::class, "register"]);
     
 });
+
+
