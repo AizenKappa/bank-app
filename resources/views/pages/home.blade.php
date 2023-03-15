@@ -8,18 +8,21 @@
 <div class='mx-auto menu' style='display: grid;gap:10px;max-width: 400px;'>
     
     <div class="alert " role="alert">
-        Afficher liste des clients
+        <a href="{{ route('clients-list') }}">Afficher liste des clients</a>
     </div>
  
     <div class="alert " role="alert">
-        Ajouter un compte
+        <a href="{{ route('ajouter-client') }}">Ajouter un compte</a>
     </div>
+
     <div class="alert " role="alert">
         Effectuer un retrait
     </div>
+
     <div class="alert " role="alert">
         Effectuer un depot
     </div>
+    
     <div class="alert " role="alert">
         Supprimer un compte
     </div>

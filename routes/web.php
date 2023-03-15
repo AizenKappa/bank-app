@@ -16,9 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::view("/", 'home');
-    Route::view("/home", 'home');
+    Route::view("/", 'pages.home');
+    Route::view("/home", 'pages.home');
     Route::post('/destroy', [SessionController::class, "destroy"]);
+
+    Route::view("/clients", "pages.clients")->name('clients-list');
+    Route::view("/ajouterClient", "pages.ajouter")->name('ajouter-client');
 });
 
 
