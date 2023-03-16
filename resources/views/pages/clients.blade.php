@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('forms.clients')
+    
+    <main style="max-width: 1400px; margin:0 auto">
+        @include('forms.clients')
+    </main>
+
 @endsection

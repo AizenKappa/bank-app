@@ -1,30 +1,50 @@
+
+
+
+
 <table class="table">
+
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Cin</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Telephone</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
+
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
+      @foreach ($clients as $client)
+        <tr>
+          <th scope="row">{{ $client->cin }}</th>
+          <td>{{ $client->nom }}</td>
+          <td>{{ $client->prenom }}</td>
+          <td>{{ $client->telephone }}</td>
+          <td>{{ $client->adresse }}</td>
+          <td class="d-flex gap-2">
+            
+            <form method="POST" action="/clients/{{ $client->id }}">
+              @csrf
+              @method('DELETE')
+              
+              <button type="submit">Supprimer</button>
+            </form>
+
+            <form method="GET" action="/clients/{{ $client->id }}">
+              @csrf
+              
+              <button type="submit">Selectioner</button>
+            </form>
+          
+
+
+          </td>
+        </tr>
+          
+      @endforeach
     </tbody>
+
   </table>
+

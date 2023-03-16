@@ -20,7 +20,7 @@ class CompteFactory extends Factory
 
         return [
             'numero_compte' => fake()->unique()->regexify('[0-9]{18}'),
-            'sold' => fake()->random_int(0, 5000),
+            'sold' => random_int(0, 5000),
             'client_id' => fake()->randomElement($clients)
         ];
     }
