@@ -8,13 +8,12 @@ use Tests\TestCase;
 
 class LoginPageTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
-    public function test_login_title_is_live(): void
+    use RefreshDatabase;
+    
+    public function test_login_title_is_showing(): void
     {
         $response = $this->get('/login');
-        $response->assertSeeText('login');
+        $response->assertSeeText('Login',false);
         $response->assertStatus(200);
     }
 }
