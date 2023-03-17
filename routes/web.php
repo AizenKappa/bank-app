@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CompteController;
+use App\Http\Controllers\SessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +18,25 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::view("/", 'home');
-    Route::view("/home", 'home');
+    Route::view("/", 'pages.home');
     Route::post('/destroy', [SessionController::class, "destroy"]);
+
+
+    Route::get("/clients", [ClientController::class, 'index'])->name('clients.index');
+    Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');
+
+    Route::get("clients/{client}", [ClientController::class, 'show'])->name('clients.show');
+
+    Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
+    Route::delete('/clients/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
+
+    Route::view('/compte/supprimer', 'pages.supprimer')->name('comptes.supprimer');
+    Route::view('/compte/depot', 'pages.depot')->name('comptes.depot');
+    Route::view('/compte/retrait', 'pages.retrait')->name('comptes.retrait');
+
+    Route::delete('/comptes', [CompteController::class, 'destroy'])->name('comptes.destroy');
+    Route::post('/compte/depot', [CompteController::class, 'effectuer_depot'])->name('effectuer.depot');
+    Route::post('/compte/retrait', [CompteController::class, 'effectuer_retrait'])->name('effectuer.retrait');
 });
 
 
