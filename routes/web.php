@@ -18,7 +18,7 @@ use App\Http\Controllers\SessionController;
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::view("/", 'pages.home');
+    Route::view("/", 'pages.home')->name('home');
     Route::post('/destroy', [SessionController::class, "destroy"]);
 
 
